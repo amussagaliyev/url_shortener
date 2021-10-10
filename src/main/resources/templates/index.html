@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta content="text/html" charset="UTF-8" http-equiv="Content-Type">
+    <title>URL shortener</title>
+    <style>
+        body {text-align: center; padding-left: 30px;}
+        table, th, td {padding: 10px; border: thin solid; border-collapse: collapse;}
+        h2 {text-align: center;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/urlService.js"></script>
+</head>
+<body>
+
+<form id="shortenUrlForm">
+    <label for="url">Your URL:</label>
+    <br/>
+    <input id="url" name="url" type="text" value="https://google.com"/>
+    <br/>
+    <input type="submit" value="Submit"/>
+</form>
+
+<h3>URLs List</h3>
+<table id="urlsTable">
+    <thead>
+    <tr>
+        <th>Original URL</th>
+        <th>Shortened URL</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+</p>
+<script type="text/javascript">
+    urlService.getAllUrls();
+    $("#shortenUrlForm").submit(function(event){
+        event.preventDefault();
+        urlService.shortenUrl(urlService.getAllUrls);
+        return true;
+    });
+
+</script>
+</body>
+</html>

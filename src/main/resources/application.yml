@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: password
+
+baseUrl: http://localhost:8080/s
+invalidUrlPage: http://localhost:8080/s/could_not_redirect.html
+
+debug: true
